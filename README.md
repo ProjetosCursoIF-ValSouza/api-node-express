@@ -2,4 +2,4 @@
 
 ## Comandos Úteisuyguyguygyu
 
-987532857247npm init
+npm init
