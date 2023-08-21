@@ -12,6 +12,8 @@ api.get('/', (req, res) => {
 
 api.use('/user', userRouter)
 api.use('/product', productRouter)
+api.use('/auth', authRouter)
+api.use('/outh', outhRouter )
 
 //inicializa o servidor (faz o servidor rodar)
 api.listen(3000, () => {
