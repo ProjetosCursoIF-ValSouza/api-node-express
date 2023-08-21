@@ -1,7 +1,8 @@
 // const express = require('express')
 import express from 'express'
-import userRouter from './routes/userRouter.js'
-import productRouter from './routes/productRouter.js'
+import userRouter from './routers/userRouter.js'
+import productRouter from './routers/productRouter.js'
+
 
 const api = express()
 
@@ -11,7 +12,6 @@ api.get('/', (req, res) => {
 
 api.use('/user', userRouter)
 api.use('/product', productRouter)
-
 
 //inicializa o servidor (faz o servidor rodar)
 api.listen(3000, () => {
