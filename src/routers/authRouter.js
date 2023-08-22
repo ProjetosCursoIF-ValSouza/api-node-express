@@ -1,14 +1,13 @@
 import express from 'express'
-import getProduct from '../controllers/product/getProduct.js'
-import insertProduct from '../controllers/product/insertProduct.js'
-import updateProduct from '../controllers/product/updateProduct.js'
-import deleteProduct from '../controllers/product/deleteProduct.js'
+import login from '../controllers/auth/login.js'
+import logout from '../controllers/auth/logout.js'
 
 const router = express.Router()
 
 // router.get('/', getAuth
 
-router.post('/', insertAuth)
+router.post('/login', login)
+router.post('/logout', logout)
 
 // router.put('/', updateProduct)
 
