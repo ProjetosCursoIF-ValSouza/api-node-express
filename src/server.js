@@ -2,6 +2,8 @@
 import express from 'express'
 import userRouter from './routers/userRouter.js'
 import productRouter from './routers/productRouter.js'
+import authRouter from './routers/authRouter.js'
+
 
 
 const api = express()
@@ -13,7 +15,7 @@ api.get('/', (req, res) => {
 api.use('/user', userRouter)
 api.use('/product', productRouter)
 api.use('/auth', authRouter)
-api.use('/outh', outhRouter )
+
 
 //inicializa o servidor (faz o servidor rodar)
 api.listen(3000, () => {
