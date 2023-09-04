@@ -24,6 +24,5 @@ api.use('/auth', authRouter)
 
 //inicializa o servidor (faz o servidor rodar)
 api.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`)
+    console.log(`Servidor rodando na porta ${PORT}! http://localhost:${PORT}`)
 })
-
