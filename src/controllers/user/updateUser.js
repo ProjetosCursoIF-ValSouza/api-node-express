@@ -1,27 +1,27 @@
-import user from '../../models/userModel.js';
+import user from "../../models/userModel.js"
 
 const updateUser = async (req, res) => {
-    try {
-        const userId = req.params.id;
-        const userData = req.body;
-
-        const result = await user.update(userId, userData);
-
-        if (result.affectedRows === 1) {
+    try{
+        const userData = req.body
+        const [result] = await user.update(userData)
+        if(result.affectedRows === 1){
             res.json({
-                success: "Usuário atualizado com sucesso!"
-            });
+                success: "Usuário atualizado com Sucesso!",
+                user: {
+                    ...userData
+                }
+            })
         } else {
             res.status(404).json({
-                error: `Usuário com ID ${userId} não encontrado!`
-            });
+                error: `Usuário id: ${userData.id} não Encontrado!`
+            })
         }
-    } catch (error) {
-        console.log(error);
+    } catch (error){
+        console.log(error)
         res.status(500).json({
-            error: "Erro no servidor!"
-        });
+            error: "Erro no servidor!",
+        })
     }
-};
+}
 
-export default updateUser;
+export default updateUser
