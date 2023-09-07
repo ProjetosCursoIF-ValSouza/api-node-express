@@ -1,6 +1,6 @@
 import product from '../../models/productModel.js';
 
-const getProductUser = async (req, res) => {
+const getProduct = async (req, res) => {
     try {
         const productId = req.params.productId; // Suponho que você esteja passando o ID do produto como um parâmetro na URL
         const productData = await product.getById(productId);

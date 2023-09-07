@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `api-web`
 --
-
+-- Definição do banco de dados `api-web`
+/*CREATE DATABASE IF NOT EXISTS `api-web` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; */
 -- --------------------------------------------------------
 
 --
@@ -66,3 +67,46 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `descricao` varchar(50) NOT NULL,
+  `preco` decimal(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `product` (`id`, `name`, `descricao`, `preco`) VALUES
+(1, 'iphone_15', 'smartphone_nova_geracao', '1231.23'),
+(2, 'levit', 'auto_voador_embraer', '192231.23');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `users`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

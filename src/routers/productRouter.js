@@ -1,17 +1,21 @@
-import express from 'express'
-import getProduct from '../controllers/product/getProduct.js'
-import insertProduct from '../controllers/product/insertProduct.js'
-import updateProduct from '../controllers/product/updateProduct.js'
-import deleteProduct from '../controllers/product/deleteProduct.js'
+import express from 'express';
+import getProduct from '../controllers/product/getProduct.js';
+import insertProduct from '../controllers/product/insertProduct.js';
+import updateProduct from '../controllers/product/updateProduct.js';
+import deleteProduct from '../controllers/product/deleteProduct.js';
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', getProduct)
+// Rota para buscar uma lista de produtos ou um produto específico
+router.get('/product', getProduct);
 
-router.post('/', insertProduct)
+// Rota para criar um novo produto
+router.post('/product', insertProduct);
 
-router.put('/', updateProduct)
+// Rota para atualizar um produto existente
+router.put('/product/:id', updateProduct);
 
-router.delete('/', deleteProduct)
+// Rota para excluir um produto existente
+router.delete('/product/:id', deleteProduct);
 
-export default router
+export default router;

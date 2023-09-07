@@ -1,6 +1,6 @@
 import user from "../../models/productModel.js"
 
-const deleteUser = async(req, res) => {
+const deleteProduct = async(req, res) => {
     try{
         const userData = req.body
         const [result] = await user.remove(userData.id)
