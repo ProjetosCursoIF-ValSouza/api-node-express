@@ -23,4 +23,4 @@ const getProduct = async (req, res) => {
     }
 };
 
-export default getProductUser;
+export default getProduct;

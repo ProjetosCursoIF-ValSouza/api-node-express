@@ -17,4 +17,4 @@ const deleteProduct = async(req, res) => {
     }
 }
 
-export default deleteUser
+export default deleteProduct
