@@ -1,5 +1,7 @@
+
+
 // Exporta a constante PORT com o valor 3000, que representa a porta na qual o servidor da API irá rodar.
-export const PORT = 3000
+export const PORT = 3300
 
 // Exporta a constante DB_HOST com o valor 'localhost', que representa o host do seu banco de dados MySQL.
 export const DB_HOST = 'localhost'

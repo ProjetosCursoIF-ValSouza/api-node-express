@@ -1,7 +1,7 @@
 {
-  "name": "api-node-express",
+  "name": "api-node-express-2sem2023",
   "version": "1.0.0",
-  "description": "API node com express",
+  "description": "API node com framework express",
   "main": "src/server.js",
   "type": "module",
   "scripts": {
@@ -10,27 +10,28 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ProjetosCursoIF-ValSouza/api-node-express.git"
+    "url": "git+https://github.com/renancavichi/api-node-express-2sem2023.git"
   },
   "keywords": [
     "api",
     "node",
-    "js",
+    "javascript",
     "mysql",
     "express",
     "mvc"
   ],
-  "author": "Val de Souza",
+  "author": "Renan Cavichi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ProjetosCursoIF-ValSouza/api-node-express/issues"
+    "url": "https://github.com/renancavichi/api-node-express-2sem2023/issues"
   },
-  "homepage": "https://github.com/ProjetosCursoIF-ValSouza/api-node-express#readme",
+  "homepage": "https://github.com/renancavichi/api-node-express-2sem2023#readme",
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "mysql2": "^3.6.1"
+    "mysql2": "^3.6.0"
   }
 }
