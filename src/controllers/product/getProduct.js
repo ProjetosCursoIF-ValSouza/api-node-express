@@ -2,8 +2,8 @@ import product from '../../models/productModel.js';
 
 const getProduct = async (req, res) => {
     try {
-        const productId = req.params.productId; // Suponho que você esteja passando o ID do produto como um parâmetro na URL
-        const productData = await product.getById(productId);
+        const productId = req.body.id; // Suponho que você esteja passando o ID do produto como um parâmetro na URL
+        const [productData] = await product.getById(productId);
 
         if (!productData) {
             res.status(404).json({

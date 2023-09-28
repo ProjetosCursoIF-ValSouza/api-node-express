@@ -5,7 +5,7 @@ import insertUser from '../controllers/user/insertUser.js' // Importa a função
 import updateUser from '../controllers/user/updateUser.js' // Importa a função controladora para atualizar um usuário.
 import deleteUser from '../controllers/user/deleteUser.js' // Importa a função controladora para excluir um usuário.
 
-const router = express.Router() // Cria uma instância de roteador Express. Essa instância pode ser usada para definir rotas
+const router = express.Router() // Cria uma instância de roteador Express. Essa instância é usada para definir rotas
 // e gerenciar o sistema de roteamento do aplicativo de forma mais organizada e
 // associa as funções controladoras às rotas HTTP correspondentes.
 

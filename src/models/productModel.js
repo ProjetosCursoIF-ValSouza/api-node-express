@@ -2,7 +2,7 @@ import db from '../database/db.js' // Importa o módulo 'db' que representa a co
 
 // Função para obter um produto pelo ID.
 const getById = async (id) => {
-    return await db.query("SELECT name, descricao FROM product Where id = ?", [id])
+    return await db.query("SELECT name, descricao, preco FROM product Where id = ?", [id])
 }
 
 // Função para criar um novo produto.

@@ -15,6 +15,6 @@ router.post('/logout', logout);
 export default router; // Exporta o roteador configurado para que ele possa ser usado em outros lugares do código.
 
 
-// O arquivo 'authRouter.js' parece ser um arquivo de roteamento (router) que lida com as funcionalidades de autenticação na API.
+// O arquivo 'authRouter.js' é um arquivo de roteamento (router) que lida com as funcionalidades de autenticação na API.
 // Ele importa funções controladoras relacionadas ao login e logout de usuários e as associa a rotas específicas HTTP (POST). 
 // Ele ajuda a manter o código organizado e separar as preocupações de roteamento das operações de autenticação.

@@ -7,16 +7,16 @@ import deleteProduct from '../controllers/product/deleteProduct.js'; // Importa 
 const router = express.Router(); // Cria uma instância de roteador Express e Associa as funções controladoras às rotas HTTP correspondentes.
 
 // Rota GET para buscar uma lista de produtos ou um produto específico.
-router.get('/product', getProduct);
+router.get('/', getProduct);
 
 // Rota POST para criar um novo produto.
-router.post('/product', insertProduct);
+router.post('/', insertProduct);
 
 // Rota PUT para atualizar um produto existente com base no ID.
-router.put('/product/:id', updateProduct);
+router.put('/', updateProduct);
 
 // Rota DELETE para excluir um produto existente com base no ID.
-router.delete('/product/:id', deleteProduct);
+router.delete('/', deleteProduct);
 
 export default router; // Exporta o roteador configurado para que ele possa ser usado em outros lugares do código.
 
