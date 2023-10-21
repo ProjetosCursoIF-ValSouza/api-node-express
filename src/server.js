@@ -1,7 +1,7 @@
-//const express = require('express')
 import express from 'express'   // Importa o framework Express usando ES6 Modules.
 import bodyParser from 'body-parser'  // Importa o middleware 'body-parser' para lidar com requisições JSON.
 import cors from 'cors'
+import morgan from 'morgan'
 import userRouter from './routers/userRouter.js'      // Importa o router (roteador) para as rotas relacionadas a usuários.
 import productRouter from './routers/productRouter.js' // Importa o router (roteador) para as rotas relacionadas a produtos.
 import authRouter from './routers/authRouter.js' // Importa o router (roteador) para as rotas relacionadas à autenticação.
@@ -14,6 +14,7 @@ api.use(cors())
 
 // Converte toda a requisição com corpo JSON para objeto no req.body (middleware):
 api.use(bodyParser.json())
+api.use(morgan('combined'))
 
 // Define uma rota de raiz ('/') que responde com uma mensagem de boas-vindas em JSON.
 api.get('/', (req, res) => {
@@ -36,3 +37,4 @@ api.listen(PORT, () => {
 
 
 //....................................................................................................
+
