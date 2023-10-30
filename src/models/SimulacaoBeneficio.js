@@ -6,7 +6,7 @@ class SimulacaoBeneficio {
       host: 'localhost',
       user: 'root',
       password: '',
-      database: 'previdenciaaquidb'
+      database: 'api_web'
     });
   }
 

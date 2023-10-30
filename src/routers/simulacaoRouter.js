@@ -1,9 +1,9 @@
 import express from 'express';
-import simulacaoControllers from '../controllers/simulacaoControllers.js';
+import simulacaoRegras from './controllers/simule/simulacaoRegras';
 
 const router = express.Router();
 
-router.use('/api', simulacaoControllers);
+router.use('/api', simulacaoregras);
 
 // Middleware de tratamento de erros
 router.use((err, req, res, next) => {

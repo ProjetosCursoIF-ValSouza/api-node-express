@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `api-web`
+-- Banco de dados: `api_web`
 --
 DROP SCHEMA IF EXISTS `api_web`;
 -- --------------------------------------------------------
