@@ -15,19 +15,6 @@ api.use(bodyParser.json());
 api.use(morgan('combined'));
 
 // Adiciona o middleware CORS para permitir solicitações de qualquer origem.
-api.use(cors());
-
-// Define uma rota de raiz ('/') que responde com uma mensagem de boas-vindas em JSON.
-api.get('/', (req, res) => {
-  res.json({ message: "Bem-vindo a nossa API" });
-});
-
-// Usa os routers importados para gerenciar as rotas relacionadas a usuários, produtos e autenticação.
-api.use('/user', userRouter);
-api.use('/product', productRouter);
-api.use('/auth', authRouter);
-<<<<<<< HEAD
-// api.use('/simulacao', simulacaoRouter);
 api.use('/simule', simulacaoRegras);
 
 // Esse arquivo é responsável por configurar o servidor da API e direcionar as solicitações
