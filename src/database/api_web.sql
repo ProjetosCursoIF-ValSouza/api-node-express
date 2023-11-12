@@ -1,11 +1,7 @@
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 25-Set-2023 às 19:47
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+
 
 SET sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 START TRANSACTION;
@@ -17,62 +13,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `api-web`
+-- Banco de dados: `api_web`
 --
-DROP SCHEMA IF EXISTS `api_web`;
+CREATE SCHEMA IF NOT EXISTS api_web;
 -- --------------------------------------------------------
 
-CREATE SCHEMA IF NOT EXISTS `api_web` DEFAULT CHARACTER SET utf8 ;
--- Estrutura da tabela `users`
-
 USE api_web;
-CREATE TABLE `users` (
-   `id` int(11) NOT NULL,
-   `name` varchar(200) NOT NULL,
-   `email` varchar(500) NOT NULL,
-   `pass` varchar(256) NOT NULL,
-   `photo` varchar(700) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `pass`, `photo`) VALUES
-(1, 'Renan C.', 'renanc@gmail.com', '312321', 'https://avatars.githubusercontent.com/u/4259630?v=4'),
-(2, 'Maria', 'maria@gmail.com', '123123', 'https://avatars.githubusercontent.com/u/104683974?v=4'),
-(4, 'Rafael', 'rafael@gmail.com', '123123', 'https://avatars.githubusercontent.com/u/110418519?v=4'),
-(5, 'Camila', 'camila@gmail.com', '123123', 'https://avatars.githubusercontent.com/u/141092604?v=4');
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
--- Restante do seu código aqui...
 
 -- -----------------------------------------------------
--- Table `previdenciaaquidb`.`simulacao_beneficio`
+-- Table `api_web`.`simulacao_beneficio`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `simulacao_beneficio` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -82,36 +32,51 @@ CREATE TABLE IF NOT EXISTS `simulacao_beneficio` (
   `tempo_contribuicao_mes` INT NULL,
   `idade_aposentadoria` INT NULL,
   `mes_aposentadoria` INT NULL,
-  `ano_aposentadoria` INT NULL,
-  `tempo_contribuicao_pendente_mes` INT NULL,
+  `anoAposentadoria` INT NULL,
+  `tempo_contribuicao_pendente` INT NULL,
+  `simulacao_beneficio_id` INT,
   `valor_beneficio` DECIMAL(10,2) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `previdenciaaquidb`.`simulacao_periodo_trabalho`
+-- Table `api_web`.`simulacao_periodo_trabalho`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `simulacao_periodo_trabalho` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `mes` INT NOT NULL,
   `ano` INT NOT NULL,
   `salario` DECIMAL(10,2) NOT NULL,
-   mes_ano VARCHAR(7) NOT NULL,
-   salario_atualizado DECIMAL(10,2) NOT NULL,
+  `mes_ano` VARCHAR(7) NOT NULL,
   `simulacao_beneficio_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_simulacao_periodo_trabalho_simulacao_beneficio_idx` (`simulacao_beneficio_id` ASC),
+  INDEX `fk_simulacao_periodo_trabalho_simulacao_beneficio_idx` (`simulacao_beneficio_id`),
   CONSTRAINT `fk_simulacao_periodo_trabalho_simulacao_beneficio`
     FOREIGN KEY (`simulacao_beneficio_id`)
-    REFERENCES `previdenciaaquidb`.`simulacao_beneficio` (`id`)
+    REFERENCES `api_web`.`simulacao_beneficio` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `api_web`.`salario_atualizado`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS salario_atualizado (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  mes_ano VARCHAR(7) NOT NULL,
+  salario_atualizado DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `api_web`.`atualizacao_monetaria`
+-- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS atualizacao_monetaria (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  mes_ano VARCHAR(10) NULL,
+  mes_ano VARCHAR(7) NOT NULL,
   indice DECIMAL(10,6) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE = InnoDB;
@@ -474,5 +439,7 @@ INSERT INTO atualizacao_monetaria (mes_ano, indice) VALUES
 SET sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 SET FOREIGN_KEY_CHECKS = 1;
 SET UNIQUE_CHECKS = 1;
+
+
 
 

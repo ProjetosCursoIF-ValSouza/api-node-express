@@ -1,20 +1,17 @@
 import express from 'express';
-import simulacaoRegras from '../controllers/simule/simulacaoRegras';
+// import simulacaoRegras from './controllers/simule/simulacaoRegras.js';
 
 const router = express.Router();
 
-router.use('/api', simulacaoregras);
+// Rota de simulação com simulacaoRegras
+// router.use('/simule', simulacaoRegras);
 
 // Middleware de tratamento de erros
 router.use((err, req, res, next) => {
-  console.error(err.stack); // Registra o erro no console para fins de depuração
-
-  // Verifique se a exceção possui uma mensagem personalizada
+  console.error(err.stack);
   if (err.message) {
     return res.status(500).json({ error: err.message });
   }
-
-  // Caso contrário, trate como um erro interno genérico
   res.status(500).json({ error: 'Erro interno do servidor' });
 });
 
