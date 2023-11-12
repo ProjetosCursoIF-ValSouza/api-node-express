@@ -7,7 +7,6 @@ import simulacaoRegras from './controllers/simule/simulacaoRegras.js';
 import userRouter from './routers/userRouter.js'; // Importa o router (roteador) para as rotas relacionadas a usuários.
 import productRouter from './routers/productRouter.js'; // Importa o router (roteador) para as rotas relacionadas a produtos.
 import authRouter from './routers/authRouter.js'; // Importa o router (roteador) para as rotas relacionadas à autenticação.
-import { PORT } from './config.js'; // Importa a constante PORT do arquivo de configuração.
 
 const api = express(); // Cria uma instância do Express e a atribui à variável 'api'.
 
@@ -30,16 +29,6 @@ api.use('/auth', authRouter);
 <<<<<<< HEAD
 // api.use('/simulacao', simulacaoRouter);
 api.use('/simule', simulacaoRegras);
-=======
-api.use('/simulacao', simulacaoRouter);
-api.use('/simule');
->>>>>>> 1f785ac9630fffba2ebe73bb2d23da8efee7757d
-
-
-// Inicializa o servidor (faz o servidor rodar) na porta especificada na constante PORT.
-api.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}! http://localhost:${PORT}`);
-});
 
 // Esse arquivo é responsável por configurar o servidor da API e direcionar as solicitações
 // para os routers apropriados, que cuidarão do processamento das rotas específicas.
