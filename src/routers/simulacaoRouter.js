@@ -1,5 +1,5 @@
 import express from 'express';
-import simulacaoRegras from '../controllers/simule/simulacaoRegras';
+import simulacaoRegras from './controllers/simule/simulacaoRegras';
 
 const router = express.Router();
 

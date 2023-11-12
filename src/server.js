@@ -27,8 +27,13 @@ api.get('/', (req, res) => {
 api.use('/user', userRouter);
 api.use('/product', productRouter);
 api.use('/auth', authRouter);
+<<<<<<< HEAD
 // api.use('/simulacao', simulacaoRouter);
 api.use('/simule', simulacaoRegras);
+=======
+api.use('/simulacao', simulacaoRouter);
+api.use('/simule');
+>>>>>>> 1f785ac9630fffba2ebe73bb2d23da8efee7757d
 
 
 // Inicializa o servidor (faz o servidor rodar) na porta especificada na constante PORT.
